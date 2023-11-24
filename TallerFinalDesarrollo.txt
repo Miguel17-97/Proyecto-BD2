@@ -1,0 +1,91 @@
+Base de datos NoSQL:
+ 1. Datos del evento:
+	* Título
+	* Descripción
+	* Categoría (sobre lo que trata el evento, puede ser una palabra clave, ejemplo: "programación, "deportes")
+	* Fecha
+	* Lugar (puede ser sede - ciudad) (se trae la informacion de la SQL)
+	* Información de los asistentes
+	* Facultades organizadoras (mostrar el programa que lo oganizó) (SE TRAE DEL SQL)
+	* Comentarios del evento
+
+2. Datos de los asistentes:
+	* Identificación (si el rol es de empleado se trae la informacion de la SQL)
+	* Nombre de usuario
+	* Nombre completo
+	* Rol del asiste (estudiante, graduado y empresario) el resto de roles (adminvo, directivo, docente) (SE TRAE DEL SQL)
+	* Email
+	* Ciudad
+
+3. Datos de los comentarios:
+	* Texto
+	* Usuario que lo realizó
+	* Fecha del comentario 
+
+
+Base de datos SQL (se trae esta información):
+
+4. Datos del lugar del evento:
+	* Nombre (se traen los nombres de las sedes de la SQL)
+	* Dirección (se inserta)
+	* Ciudad (se traen las ciudades de la SQL)
+
+5. Datos de la ciudad:
+	* Nombre	(se traen los nombres de la SQL)
+	* Departamento (se traen los deptos de la SQL)
+	* País		(se traen los paises de la SQL)
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Operaciones requeridas:
+-> Obtener los organizadores de un evento (ya sea facultad o programa)
+-> Obtener los facilitadores y asistentes del evento. (Si son empleados del poli [o sea, filtrar por el rol] se debe cargar la información desde 
+el sistema relacional.
+-> CRUD del evento
+
+* Obtener información de ambas bases de datos (SQL - NoSQL) 
+
+Tareas:
+-> Bases de datos - MIGUEL:
+	* Creación de las tablas y esquemas
+	* Inserción de la información
+
+-> Código:
+	- Juli:
+	* Adaptadores: creación de los contextos, los dos adaptadores de cada base de datos.
+
+	- Mari
+	* Controller - Lógica: creación de EndPoints, lógica de busqueda y creación de la información.
+
+Categorias de un evento:
+
+Social
+Programacion
+Deportes
+
+MONGOS (consola)
+
+use Eventos_Poli
+db.createCollection("evento")
+db.createCollection("asistentes")
+db.createCollection("comentarios")
+db.createCollection("lugar")
+db.createCollection("ciudad")
+
+db.evento.insertOne({titulo: "", descripcion: "", categoria: ["Social", "Programacion", "Deportes"], fecha: "", lugar: "", id_asistente: "", nombre_asistente:"", rol_asistente: "", organizadoras: "", comentarios: "" })
+db.asistentes.insertOne({identificacion: "", usuario: "", nombres: "", rol: ["Estudiante", "Graduado", "Empresario"], email: "", ciudad: ""})
+db.comentarios.insertOne({texto: "", usuario: "", fecha_comentario: ""})
+db.lugar.insertOne({nombre: "", direccion: "", ciudad: ""})
+db.ciudad.insertOne({nombre: "", depto: "", pais: ""})
+
+
+
+
+
+
+
+
+
+
+
+ 
